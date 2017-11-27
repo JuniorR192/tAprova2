@@ -1,32 +1,33 @@
 subprojects {
 
-	apply plugin: 'java'
-	apply plugin: 'eclipse'
-	
-	repositories {
-		mavenCentral()
-	}
+        apply plugin: 'java'
+        apply plugin: 'eclipse'
 
-	configurations {
-		provided
-	}
+        repositories {
+                mavenCentral()
+        }
 
-	sourceSets {
-		main {
-			compileClasspath += configurations.provided
-			eclipse.classpath.plusConfigurations += [configurations.provided]
-		}
-		test {
-			compileClasspath += configurations.provided
-			runtimeClasspath += configurations.provided
-			eclipse.classpath.plusConfigurations += [configurations.provided]
-		}
-	}
+        configurations {
+                provided
+        }
 
-	dependencies {
-		testCompile 'junit:junit:4.12'
-		provided 'javax:javaee-api:7.0'
-	}
+        sourceSets {
+                main {
+                        compileClasspath += configurations.provided
+                        eclipse.classpath.plusConfigurations += [configurations.provided]
+                }
+                test {
+                        compileClasspath += configurations.provided
+                        runtimeClasspath += configurations.provided
+                        eclipse.classpath.plusConfigurations += [configurations.provided]
+                }
+        }
 
-	version = '0.1-SNAPSHOT'
+        dependencies {
+                testCompile 'junit:junit:4.12'
+                provided 'javax:javaee-api:7.0'
+        }
+
+        version = '0.1-SNAPSHOT'
 }
+

@@ -1,4 +1,0 @@
-dependencies {
-	compile project(':form-rest-api')
-	compile project(':form-rest-ejb-client')
-}

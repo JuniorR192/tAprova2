@@ -3,5 +3,7 @@ apply plugin: 'war'
 jar.enabled = false
 
 dependencies {
-	compile project(':form-rest-core')
+	compile project(':shopping-core')
 }
+
+
