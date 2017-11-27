@@ -1,2 +1,1 @@
 include "shopping-api", "shopping-core", "shopping-ear", "shopping-war", "shopping-ejb", "shopping-ejb-client"
-

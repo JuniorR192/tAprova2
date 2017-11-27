@@ -1,60 +1,53 @@
 package br.edu.univas.si8.ta.shopping.ejb.entities;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity(name = "shopping_order")
 @SequenceGenerator(name = "seq_shopping_order", sequenceName = "seq_shopping_order", allocationSize = 1)
 public class Order {
-
+	
 	@Id
-	@GeneratedValue(generator="seq_shopping_order", strategy=GenerationType.SEQUENCE)
-	private int Id;
+	@GeneratedValue(generator = "seq_shopping_order", strategy = GenerationType.SEQUENCE)
+	private Integer id;
+	
 	private String description;
-	private Timestamp order_time;
 	
+	@Column(name="order_time")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date orderTime;
+
 	public Integer getId() {
-		return Id;
+		return id;
 	}
-	
-	public void setId(int id) {
-		Id = id;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	
-	public Order withId(int id) {
-		this.Id = id;
-		return this;
-	}
-	
+
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	public Order whithDescription(String description) {
-		this.description = description;
-		return this;
+
+	public Date getOrderTime() {
+		return orderTime;
 	}
-	
-	public Timestamp getOrder_time() {
-		return order_time;
-	}
-	
-	public void setOrder_time(Timestamp order_time) {
-		this.order_time = order_time;
-	}
-	
-	public Order withOrder_time(Timestamp order_time) {
-		this.order_time = order_time;
-		return this;
+
+	public void setOrderTime(Date orderTime) {
+		this.orderTime = orderTime;
 	}
 	
 }
